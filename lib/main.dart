@@ -26,7 +26,7 @@ class StoreApp extends StatelessWidget {
     ),
     authCubit: AuthCubit(
       authRepository: AuthRepository(AuthWebServices(baseUrl: baseUrl)),
-    ), cartCubit: CartCubit(cartRepository: CartRepository(CartWebServices(baseUrl: baseUrl))),
+    ), cartCubit: CartCubit(),
   );
 
   @override

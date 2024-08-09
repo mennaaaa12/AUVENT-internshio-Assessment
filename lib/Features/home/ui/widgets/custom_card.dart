@@ -37,10 +37,10 @@ class _CustomCardState extends State<CustomCard> {
 void _addToCart() {
   if (quantity > 0) {
     final cartItem = Cart(
-      id: widget.product.id,
+      id: 1, // Assuming userId is 1
       date: DateTime.now().toIso8601String(),
       products: [
-        Products(productId: widget.product.id, quantity: quantity),
+        Products(productId: widget.product.id!, quantity: quantity),
       ],
       iV: null,
     );
@@ -55,6 +55,7 @@ void _addToCart() {
     );
   }
 }
+
 
 
   @override
@@ -129,7 +130,7 @@ void _addToCart() {
                           child: IconButton(
                             onPressed: _addToCart,
                             icon: const Icon(
-                              FontAwesomeIcons.cartPlus,
+                              FontAwesomeIcons.cartShopping,
                               color: Colors.black,
                             ),
                           )),
