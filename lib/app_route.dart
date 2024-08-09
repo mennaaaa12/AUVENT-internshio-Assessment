@@ -12,26 +12,23 @@ import 'package:store/Features/home/ui/home_page.dart';
 import 'package:store/Features/home/cubit/product_cubit.dart';
 import 'package:store/Features/home/data/repository/product_repository.dart';
 import 'package:store/Features/home/data/web_service/product_web_services.dart';
-import 'package:store/constant/strings.dart';
+import 'package:store/core/constant/strings.dart';
 
 class AppRouter {
   final ProductRepository productRepository;
   final ProductCubit productCubit;
   final AuthRepository authRepository;
   final AuthCubit authCubit;
-  final CartRepository cartRepository; // Add CartRepository
-  final CartCubit cartCubit; // Add CartCubit
+  final CartRepository cartRepository; 
+  final CartCubit cartCubit; 
 
   AppRouter({
-    required ProductCubit productCubit,
-    required AuthCubit authCubit,
-    required CartCubit cartCubit, // Add CartCubit to the constructor
+    required this.productCubit,
+    required this.authCubit,
+    required this.cartCubit, 
   })  : productRepository = ProductRepository(ProductWebServices(baseUrl: baseUrl)),
-        productCubit = productCubit,
         authRepository = AuthRepository(AuthWebServices(baseUrl: baseUrl)),
-        authCubit = authCubit,
-        cartRepository = CartRepository(CartWebServices(baseUrl: baseUrl)), // Initialize CartRepository
-        cartCubit = cartCubit;
+        cartRepository = CartRepository(CartWebServices(baseUrl: baseUrl));
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -40,7 +37,7 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => productCubit),
-              BlocProvider(create: (context) => cartCubit), // Provide CartCubit here
+              BlocProvider(create: (context) => cartCubit), 
             ],
             child: const HomePage(),
           ),

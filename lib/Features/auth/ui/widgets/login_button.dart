@@ -4,7 +4,7 @@ import 'package:store/Features/auth/cubit/cubit/auth_cubit.dart';
 import 'package:store/Features/auth/ui/widgets/button.dart';
 import 'package:store/Features/auth/ui/widgets/email_and_password.dart';
 import 'package:store/Features/home/ui/home_page.dart';
-import 'package:store/Themes/text_style.dart';
+import 'package:store/core/Themes/text_style.dart';
 
 class LoginButton extends StatefulWidget {
   const LoginButton({super.key});
